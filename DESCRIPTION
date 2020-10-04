@@ -1,12 +1,11 @@
 Package: survey.analysis
-Title: What the Package Does (One Line, Title Case)
+Title: Package for analysis of Suvey Monkey data
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Leonardo",
+           family = "Rocha",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
+           email = "leonardo.rocha@fiocruz.br")
 Description: What the package does (one paragraph).
 License: MIT + file LICENSE
 Encoding: UTF-8
