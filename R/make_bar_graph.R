@@ -1,6 +1,31 @@
-# Função para fazer gráficos de barra na horizontal
-
-
+#' Geração de gráfico de barras
+#'
+#' longo
+#'
+#' descrição
+#'
+#' @param data
+#' @param negative_col
+#' @param fill_color
+#' @param title_max_size
+#' @param legend_max_size
+#' @param axis_max_size
+#' @param sort_by_value
+#' @param legend_position
+#' @param base_text_size
+#' @param title
+#' @param grey_scale
+#' @param with_labels
+#'
+#' @return Gráfico customizado de barras na horizontal gerado pelo ggplot
+#'
+#' @export
+#'
+#' @import ggplot2
+#' @import dplyr
+#'
+#' @author Leonardo Rocha
+#'
 make_bar_graph <- function(data,
                            negative_col = FALSE,
                            fill_color = "Oranges",

@@ -1,7 +1,22 @@
-# função simples que quebra um texto em partes a partir de um tamanho máximo
-# utilizada para quebra de textos que vão para o gráfico de modo que possa ser customizado
-# de forma mais automática o tamanho na horizontal de textos longos ao quebrar o texto
-# em várias linhas
+#' Break text
+#'
+#' Quebra o texto por linhas segundo um tamanho máximo de caracter por linha.
+#'
+#' Essa função insere quebras de texto "\\n" segundo um
+#' tamanho máximo de caracteres por linha.
+#' A quebra é inserida logo após a palavra que ultrapassa o limite por linha.
+#' Utilizada para quebra de textos que vão para o gráfico de modo que possa ser
+#' cursomizado de forma mais automática o tamanho horizontal de textos longos.
+#'
+#' @param string Character. O texto deve ser quebrado em partes menores
+#' @param max_size Numeric. Limite de tamanho por linha
+#'
+#' @return Character. O mesmo texto anterior, porém com quebras de linhas.
+#'
+#' @author Leonardo Rocha
+#'
+#' @export
+
 
 break_text <- function(string, max_size) {
   # quebra o texto em uma lista de strings, separado por ' '.

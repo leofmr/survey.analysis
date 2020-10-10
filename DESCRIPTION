@@ -6,7 +6,8 @@ Authors@R:
            family = "Rocha",
            role = c("aut", "cre"),
            email = "leonardo.rocha@fiocruz.br")
-Description: What the package does (one paragraph).
+Description: A series of tools to analyze a standardized csv file
+    of the survey monkey responses.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -14,3 +15,5 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 URL: https://github.com/leofmr/survey.analysis
 BugReports: https://github.com/leofmr/survey.analysis/issues
+Depends: 
+    R (>= 2.10)

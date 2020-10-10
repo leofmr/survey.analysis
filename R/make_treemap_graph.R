@@ -1,4 +1,33 @@
-# Função para fazer gráficos de treemap
+#' Geração de gráfico treemap
+#'
+#' longo
+#'
+#' descrição
+#'
+#' @param data
+#' @param negative_col
+#' @param fill_color
+#' @param title_max_size
+#' @param legend_max_size
+#' @param axis_max_size
+#' @param sort_by_value
+#' @param legend_position
+#' @param base_text_size
+#' @param title
+#' @param grey_scale
+#' @param with_labels
+#'
+#' @return Gráfico customizado de barras na horizontal gerado pelo ggplot
+#'
+#' @export
+#'
+#' @import ggplot2
+#' @import dplyr
+#' @import treemapfy
+#' @import cowplot
+#'
+#' @author Leonardo Rocha
+#'
 
 make_treemap_graph <- function(data,
                                legend_max_size = 15,

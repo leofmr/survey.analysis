@@ -1,9 +1,27 @@
-# função de suporte ao gráfico de treemap de vinculamento de uma questão com outras
-# deve ser aplicado caso uma questão seja depentente de outra por contrução do questionário
-# nesse caso a questão independente é a pai enquanto que as dependentes são os filhos
-# como as questões dependentes ocorrem após a questão independente.
-# é necessário forneceder o número da questão independente
-# acompanhada da quantidade de questões dependentes posteriores.
+#' Relacionar tabelas
+#'
+#' Relaciona duas tabelas de frequências de respostas de questões relacionadas no survey
+#'
+#' Pega a tabela de uma questão que é considerada filha de outra, e seleciona apenas as contagens de
+#' nível de conhecimento total, e cria uma nova coluna que é equivalente à opção equivalente da questão pai.
+#' Essa função deve ser aplicada a todas as questões filhas de um mês pai para depois a lista de resultados
+#' dessa função ser empilhada pela rowbindlist.
+#' Para o bom funcionamento da questão a numeração das respostas da questão pai precisa seguir
+#' a ordem da questão filha na lista de perguntas. Ou seja se, a opção 1 é equivalente à questão imediamente
+#' após a questão pai.
+#'
+#' @param data. List. A lista com todos os dados nomeados pelo nome da questão
+#' @param qfather Numeric. O número da questão pai
+#' @param nson Numeric. O número da questão filha
+#'
+#' @return Tibble. O dado da filha com a coluna respectiva ao nome da pai
+#'
+#' @author Leonardo Rocha
+#'
+#' @import dplyr
+#'
+#' @export
+
 
 
 # preciso alterar essa função para incorporar a parte de rbindlist do data.table

@@ -1,6 +1,24 @@
-# função que gera as tabulações para questões principais,
-# com os percentuais divididos por nível de conhecimento
-
+#' Tabulação de questão do Survey Monkey
+#'
+#' Realiza as tabulações para uma questão do survey monkey,
+#' calculando o p-valor para testar aderência entre nível de conhecimento.
+#'
+#' Essa função irá fazer as tabulações com percepção das escolhas para cada resposta, de questões principais.
+#' Dado um número de questão principal, as respostas de todas as subquestão são também calculadas.
+#'
+#' @param dt Tibble. dataset composto por todas as respostas do survey
+#' @param question_number Numeric. número da questão que vai ser tabulada
+#' @param question_labe Tibble. tabela com a relação de indice de questão e legendas de questão.
+#' @param answer_label Tibble. tabela com a relação entre questão principal e legendas de respostas.
+#'
+#' @author Leonardo Rocha
+#'
+#' @import dplyr
+#'
+#' @export
+#'
+#' @return Tibble com as frequências por nível de conhecimento, resposta e subquestões calculadas,
+#' com as questões e opções rotuladas, e o p-valor do teste de aderência por nível de conhecimento
 tab_suvey_question <- function(dt, question_number, question_label, answer_label) {
 
   # geração do string que vai ser utilizado para poder selecionar as colunas de dt
