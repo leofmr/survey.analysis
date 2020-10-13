@@ -31,11 +31,11 @@ link_tabs <- function(data, qfather, nson) {
 
   # gera uma tabela do filho vinculada ao pai
   son %>%
-    filter(knowledge == "Total") %>%
-    select( answer_label, count) %>%
-    rename("group2" = 1,
+    dplyr::filter(knowledge == "Total") %>%
+    dplyr::select( answer_label, count) %>%
+    dplyr::rename("group2" = 1,
            "count" = 2) %>%
-    mutate(group1 = levels(father$answer_label)[link],
+    dplyr::mutate(group1 = levels(father$answer_label)[link],
            group2 = as.character(group2)) %>%
-    select(group1, group2, count)
+    dplyr::select(group1, group2, count)
 }

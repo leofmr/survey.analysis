@@ -24,6 +24,8 @@ Imports:
     treemapify,
     scales,
     tidyr,
-    stringr
+    stringr,
+    stats,
+    purrr
 Suggests: 
     tidyverse

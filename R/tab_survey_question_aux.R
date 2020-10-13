@@ -4,13 +4,15 @@
 #' aplicado a uma tabela de contingência. Utilizado dentro da tabulação das
 #' questões do survey para gerar a coluna de p-valor porquestão principal.
 #'
+#' @import stats
+#'
 #' @param x Tibble. tabela de contingência
 #'
 #' @return Numeric. P-valor relativo à contingência
 #'
 #'
 extract_p <- function(x) {
-  chisq.test(x, simulate.p.value = TRUE)$p.value
+  stats::chisq.test(x, simulate.p.value = TRUE)$p.value
 }
 
 #' gerar nomes
@@ -38,12 +40,12 @@ gen_names <- function(number) {
 #'
 apply_labels <- function(data, question_label, answer_label) {
   data %>%
-    left_join(question_label, by="question") %>%
-    separate(question, into=c("main_code", "sub_code")) %>%
-    mutate(main_code = str_remove(main_code, "q"),
+    dplyr::left_join(question_label, by="question") %>%
+    tidyr::separate(question, into=c("main_code", "sub_code")) %>%
+    dplyr::mutate(main_code = str_remove(main_code, "q"),
            answer = as.character(answer)) %>%
-    left_join(answer_label, by=c("main_code", "answer")) %>%
-    mutate(
+    dplyr::left_join(answer_label, by=c("main_code", "answer")) %>%
+    dplyr::mutate(
       main_code = as.integer(main_code),
       sub_code = as.integer(sub_code),
       answer = as.integer(answer),
@@ -52,6 +54,6 @@ apply_labels <- function(data, question_label, answer_label) {
       answer_label = reorder(answer_label, answer),
       knowledge = factor(knowledge, labels = c("Good knowledge", "Some knowledge", "Total"))
     ) %>%
-    select(main_question, sub_question, p_value, knowledge, answer_label, count, percent, total) %>%
-    arrange(sub_question, knowledge, answer_label)
+    dplyr::select(main_question, sub_question, p_value, knowledge, answer_label, count, percent, total) %>%
+    dplyr::arrange(sub_question, knowledge, answer_label)
 }

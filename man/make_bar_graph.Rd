@@ -5,7 +5,7 @@
 \title{Geração de gráfico de barras}
 \usage{
 make_bar_graph(
-  data,
+  question_data,
   negative_col = FALSE,
   fill_color = "Oranges",
   title_max_size = 60,
@@ -14,13 +14,13 @@ make_bar_graph(
   sort_by_value = FALSE,
   legend_position = "bottom",
   base_text_size = 9,
-  title = FALSE,
+  has_title = FALSE,
   grey_scale = FALSE,
   with_labels = TRUE
 )
 }
 \arguments{
-\item{data}{Tibble. survey dataset completo}
+\item{question_data}{Tibble.Tabulações relativas à questão principal}
 
 \item{negative_col}{Character. Nome da questão que possui a conotação negativa}
 
@@ -39,7 +39,7 @@ devem ser adicionadas ordenadas por valor do percent}
 
 \item{base_text_size}{Numeric. Tamanho base do texto a ser utilizada no tema}
 
-\item{title}{Logical. indicativo de se deve incluir o título na figura}
+\item{has_title}{Logical. indicativo de se deve incluir o título na figura}
 
 \item{grey_scale}{Logical. indicativo se deve ser utilizada escala de cinza}
 

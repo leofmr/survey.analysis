@@ -9,4 +9,4 @@
 #' @name survey.analysis
 "_PACKAGE"
 #'
-#utils::globalVariables(c("", ""))
+utils::globalVariables(c("data", "group1", "group2", "total", "p_value", "question", "sub_code", "sub_question", "knowledge", "main_code", "main_question", "answer_label", "answer", "."))

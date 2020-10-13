@@ -14,6 +14,8 @@
 #' @author Leonardo Rocha
 #'
 #' @import dplyr
+#' @import purrr
+#' @import tidyr
 #'
 #' @export
 #'
@@ -32,16 +34,16 @@ tab_suvey_question <- function(dt, question_number, question_label, answer_label
   # calculando as contagens por conhecimento e resposta (mas mantendo a questão para adicionar rotulo)
   # por fim completando aquelas respostas que não tiveram frequência para algum grupo com 0
   qtab <- dt %>%
-    select("q1_1", starts_with(question_start)) %>%
-    rename(knowledge = 1) %>%
-    gather(question, answer, -1) %>%
-    filter(answer != "") %>%
-    mutate(answer = factor(answer),
+    dplyr::select("q1_1", starts_with(question_start)) %>%
+    dplyr::rename(knowledge = 1) %>%
+    tidyr::gather(question, answer, -1) %>%
+    dplyr::filter(answer != "") %>%
+    dplyr::mutate(answer = factor(answer),
            knowledge = factor(knowledge)) %>%
-    group_by(knowledge, question, answer) %>%
-    summarise(count = n()) %>%
-    complete(answer, fill = list(count = 0)) %>%
-    ungroup()
+    dplyr::group_by(knowledge, question, answer) %>%
+    dplyr::summarise(count = n()) %>%
+    tidyr::complete(answer, fill = list(count = 0)) %>%
+    dplyr::ungroup()
 
   #calculando o p-valor do teste qui-quadrado por questão.
   # isso é para ver se tem alguma diferença por nível de conhecimento
@@ -49,21 +51,21 @@ tab_suvey_question <- function(dt, question_number, question_label, answer_label
   # são então cada tabela de contigência é agrupada para questao em uma variável
   # data onde fica localizada a tabela de contigência
   p_values <- qtab %>%
-    spread(answer, count) %>%
-    select(-knowledge) %>%
-    group_by(question) %>%
-    nest() %>%
-    mutate(p_value = as_vector(lapply(data, extract_p))) %>%
-    select(-data) %>%
-    ungroup()
+    tidyr::spread(answer, count) %>%
+    dplyr::select(-knowledge) %>%
+    dplyr::group_by(question) %>%
+    tidyr::nest() %>%
+    dplyr::mutate(p_value = purrr::as_vector(lapply(data, extract_p))) %>%
+    dplyr::select(-data) %>%
+    dplyr::ungroup()
 
   # geração de uma tabela com os totais, dos dois níveis de conhecimento
   # é adicionado o valor 3 para conhecimento que será representante de total
   qtab_total <- qtab %>%
-    group_by(question, answer) %>%
-    summarise(count = sum(count),
+    dplyr::group_by(question, answer) %>%
+    dplyr::summarise(count = sum(count),
               knowledge = "3") %>%
-    ungroup()
+    dplyr::ungroup()
 
   # agrugem dos valores de p_valor por questão
   # nível de conhecimento total
@@ -74,11 +76,11 @@ tab_suvey_question <- function(dt, question_number, question_label, answer_label
     # sub questão
     # resposta
   qtab %>%
-    bind_rows(qtab_total) %>%
-    group_by(question, knowledge) %>%
-    mutate(total = sum(count),
+    dplyr::bind_rows(qtab_total) %>%
+    dplyr::group_by(question, knowledge) %>%
+    dplyr::mutate(total = sum(count),
            percent = count / total) %>%
-    ungroup() %>%
-    left_join(p_values, by = "question") %>%
+    dplyr::ungroup() %>%
+    dplyr::left_join(p_values, by = "question") %>%
     apply_labels(question_label = question_label, answer_label = answer_label)
 }
