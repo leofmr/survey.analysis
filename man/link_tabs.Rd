@@ -7,11 +7,11 @@
 link_tabs(data, qfather, nson)
 }
 \arguments{
+\item{data}{List. A lista com todos os dados nomeados pelo nome da questão}
+
 \item{qfather}{Numeric. O número da questão pai}
 
 \item{nson}{Numeric. O número da questão filha}
-
-\item{data.}{List. A lista com todos os dados nomeados pelo nome da questão}
 }
 \value{
 Tibble. O dado da filha com a coluna respectiva ao nome da pai

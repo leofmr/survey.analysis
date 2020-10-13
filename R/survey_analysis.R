@@ -8,3 +8,5 @@
 #' @docType package
 #' @name survey.analysis
 "_PACKAGE"
+#'
+#utils::globalVariables(c("", ""))

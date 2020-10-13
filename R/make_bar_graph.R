@@ -4,18 +4,19 @@
 #'
 #' descrição
 #'
-#' @param data
-#' @param negative_col
-#' @param fill_color
-#' @param title_max_size
-#' @param legend_max_size
-#' @param axis_max_size
-#' @param sort_by_value
-#' @param legend_position
-#' @param base_text_size
-#' @param title
-#' @param grey_scale
-#' @param with_labels
+#' @param data Tibble. survey dataset completo
+#' @param negative_col Character. Nome da questão que possui a conotação negativa
+#' @param fill_color Character. Paleta de cores do preenchimento do treemap e da barra
+#' @param title_max_size Numeric. Tamanho máximo da linha do texto título do gráfico
+#' @param legend_max_size Numeric. Tamanho máximo da linha do texto legenda do gráfico
+#' @param axis_max_size Numeric. Tamanho máximo da linha do texto do eixo x do gráfico
+#' @param sort_by_value Logical. Indicativo se as categorias utilizadas no fill,
+#' devem ser adicionadas ordenadas por valor do percent
+#' @param legend_position Character. Indicativo da posição da legenda de fill
+#' @param base_text_size Numeric. Tamanho base do texto a ser utilizada no tema
+#' @param title Logical. indicativo de se deve incluir o título na figura
+#' @param grey_scale Logical. indicativo se deve ser utilizada escala de cinza
+#' @param with_labels Logical. indicativo se desemv ser adicionados os percentuais no gráfico
 #'
 #' @return Gráfico customizado de barras na horizontal gerado pelo ggplot
 #'
@@ -23,6 +24,7 @@
 #'
 #' @import ggplot2
 #' @import dplyr
+#' @import scales
 #'
 #' @author Leonardo Rocha
 #'

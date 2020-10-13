@@ -11,6 +11,8 @@
 #' @param string Character. O texto deve ser quebrado em partes menores
 #' @param max_size Numeric. Limite de tamanho por linha
 #'
+#' @import stringr
+#'
 #' @return Character. O mesmo texto anterior, porém com quebras de linhas.
 #'
 #' @author Leonardo Rocha
@@ -20,7 +22,7 @@
 
 break_text <- function(string, max_size) {
   # quebra o texto em uma lista de strings, separado por ' '.
-  text_list <- as.list(str_split(string, " ")[[1]])
+  text_list <- as.list(stringr::str_split(string, " ")[[1]])
 
   # resultado final vai ser uma lista de strings que será juntada por '\n'
   final <- list()

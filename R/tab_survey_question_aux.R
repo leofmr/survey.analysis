@@ -1,19 +1,41 @@
-# funções auxiliares ao tab_survey_question
-
-# extração do p-valor das tabelas de contingência aninhadas
+#' Extração de p-valor
+#'
+#' Extração de p-valor por um teste de aderência do tipo da qui-quadrado,
+#' aplicado a uma tabela de contingência. Utilizado dentro da tabulação das
+#' questões do survey para gerar a coluna de p-valor porquestão principal.
+#'
+#' @param x Tibble. tabela de contingência
+#'
+#' @return Numeric. P-valor relativo à contingência
+#'
+#'
 extract_p <- function(x) {
   chisq.test(x, simulate.p.value = TRUE)$p.value
 }
 
-# geração do nome da questão - esse daqui talvez seja desnecesário
+#' gerar nomes
+#' @param number Numeric. Gera o nome da questão a partir do número
+#'
+#' @return Character. Nome da questão principal composto pelo número precedido
+#' pelo caracter "q".
+#'
 gen_names <- function(number) {
   paste("q", number, sep = "")
 }
 
-# função de suporte que aplica label ao dataframe
-# aplicada ao final da geração do tab_survey para atribuir os rótulos
-# nos arquivos de rótulo de questão e rótulo de resposta
-# aos dados do arquivo de dados.
+#' Aplicação de rótulo
+#'
+#' Utiliza os dados de rótulo de questões e resposta para aplicar aos dados
+#'
+#' @param data Tibble. Dados já organizados com os percentuais calculados
+#' @param question_label Tibble. Dados gerados pelo usuário com os rótulos
+#' de questão vinculado aos identificadores de questão
+#' @param answer_label Tibble. Dados gerados pelo usuário com os rótulos
+#' de respostas vinculadas aos identificadores de questão
+#'
+#' @import tidyr
+#' @import dplyr
+#'
 apply_labels <- function(data, question_label, answer_label) {
   data %>%
     left_join(question_label, by="question") %>%

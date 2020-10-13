@@ -17,3 +17,13 @@ URL: https://github.com/leofmr/survey.analysis
 BugReports: https://github.com/leofmr/survey.analysis/issues
 Depends: 
     R (>= 2.10)
+Imports: 
+    cowplot,
+    dplyr,
+    ggplot2,
+    treemapify,
+    scales,
+    tidyr,
+    stringr
+Suggests: 
+    tidyverse

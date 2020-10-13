@@ -11,9 +11,9 @@ tab_suvey_question(dt, question_number, question_label, answer_label)
 
 \item{question_number}{Numeric. número da questão que vai ser tabulada}
 
-\item{answer_label}{Tibble. tabela com a relação entre questão principal e legendas de respostas.}
+\item{question_label}{Tibble. tabela com a relação de indice de questão e legendas de questão.}
 
-\item{question_labe}{Tibble. tabela com a relação de indice de questão e legendas de questão.}
+\item{answer_label}{Tibble. tabela com a relação entre questão principal e legendas de respostas.}
 }
 \value{
 Tibble com as frequências por nível de conhecimento, resposta e subquestões calculadas,

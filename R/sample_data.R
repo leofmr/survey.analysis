@@ -14,4 +14,4 @@
 #'  Y -> é o indicador da subquestão
 #' Questões que não possuem subquestões tem o Y=1
 #' Por padrão a primeira questão é a de nível de conhecimento
-
+"sample_data"

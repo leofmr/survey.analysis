@@ -8,7 +8,7 @@
 #'
 #' @param dt Tibble. dataset composto por todas as respostas do survey
 #' @param question_number Numeric. número da questão que vai ser tabulada
-#' @param question_labe Tibble. tabela com a relação de indice de questão e legendas de questão.
+#' @param question_label Tibble. tabela com a relação de indice de questão e legendas de questão.
 #' @param answer_label Tibble. tabela com a relação entre questão principal e legendas de respostas.
 #'
 #' @author Leonardo Rocha

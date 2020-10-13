@@ -13,7 +13,15 @@ make_treemap_graph(
 )
 }
 \arguments{
-\item{with_labels}{}
+\item{data}{Tibble. survey dataset completo}
+
+\item{legend_max_size}{Numeric. Tamanho máximo da linha do texto legenda do gráfico}
+
+\item{fill_color}{Character. Paleta de cores do preenchimento do treemap e da barra}
+
+\item{grey_scale}{Logical. indicativo se deve ser utilizada escala de cinza}
+
+\item{with_labels}{Logical. indicativo se desemv ser adicionados os percentuais no gráfico}
 }
 \value{
 Gráfico customizado de barras na horizontal gerado pelo ggplot

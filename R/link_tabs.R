@@ -10,7 +10,7 @@
 #' a ordem da questão filha na lista de perguntas. Ou seja se, a opção 1 é equivalente à questão imediamente
 #' após a questão pai.
 #'
-#' @param data. List. A lista com todos os dados nomeados pelo nome da questão
+#' @param data List. A lista com todos os dados nomeados pelo nome da questão
 #' @param qfather Numeric. O número da questão pai
 #' @param nson Numeric. O número da questão filha
 #'
@@ -21,10 +21,7 @@
 #' @import dplyr
 #'
 #' @export
-
-
-
-# preciso alterar essa função para incorporar a parte de rbindlist do data.table
+#'
 link_tabs <- function(data, qfather, nson) {
 
   # pega o numero do filho e do pai

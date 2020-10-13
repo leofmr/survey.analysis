@@ -20,7 +20,30 @@ make_bar_graph(
 )
 }
 \arguments{
-\item{with_labels}{}
+\item{data}{Tibble. survey dataset completo}
+
+\item{negative_col}{Character. Nome da questão que possui a conotação negativa}
+
+\item{fill_color}{Character. Paleta de cores do preenchimento do treemap e da barra}
+
+\item{title_max_size}{Numeric. Tamanho máximo da linha do texto título do gráfico}
+
+\item{legend_max_size}{Numeric. Tamanho máximo da linha do texto legenda do gráfico}
+
+\item{axis_max_size}{Numeric. Tamanho máximo da linha do texto do eixo x do gráfico}
+
+\item{sort_by_value}{Logical. Indicativo se as categorias utilizadas no fill,
+devem ser adicionadas ordenadas por valor do percent}
+
+\item{legend_position}{Character. Indicativo da posição da legenda de fill}
+
+\item{base_text_size}{Numeric. Tamanho base do texto a ser utilizada no tema}
+
+\item{title}{Logical. indicativo de se deve incluir o título na figura}
+
+\item{grey_scale}{Logical. indicativo se deve ser utilizada escala de cinza}
+
+\item{with_labels}{Logical. indicativo se desemv ser adicionados os percentuais no gráfico}
 }
 \value{
 Gráfico customizado de barras na horizontal gerado pelo ggplot
